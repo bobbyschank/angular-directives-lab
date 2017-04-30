@@ -10,7 +10,8 @@ function CardsController($http){
   getCards();
   function getCards() {
     $http
-      .get('https://shielded-forest-41789.herokuapp.com/api/flashcards')
+      // .get('https://shielded-forest-41789.herokuapp.com/api/flashcards')
+      .get('http://localhost:3000/cards/')
       .then(function(response) {
         console.log('In getCards.');
         console.log(response);
