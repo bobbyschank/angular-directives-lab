@@ -1,7 +1,5 @@
 // SERVER-SIDE JAVASCRIPT
 
-
-
 //require express in our app
 var express = require('express');
 var app = express();
@@ -14,7 +12,6 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
 app.use(express.static(__dirname + '/front-end'));
 
 app.get('/', function (req, res){
@@ -22,7 +19,6 @@ app.get('/', function (req, res){
   res.sendFile(__dirname + '/front-end/index.html');
 });
 console.log('server');
-
 
 // INDEX
 app.get('/cards/', function(req,res){
@@ -55,6 +51,20 @@ app.post('/cards/', function(req, res){
 		if(err) {console.log('CREATE Error: ' + err);}
 		console.log('CREATE Successful.');
 		res.json(card);
+	});
+});
+
+// UPDATE
+app.put('http://localhost:3000/cards/:id', function(req, res){
+	
+});
+
+// DELETE
+app.delete('/cards/:id', function(req, res){
+	console.log('In DELETE');
+	const deleteId = req.params.id;
+	db.Card.findOneAndRemove({ _id: deleteId }, function(err, deletedCard){
+		res.json(deletedCard);
 	});
 });
 

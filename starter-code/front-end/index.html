@@ -16,15 +16,34 @@
       <div class="container">
         <header class="navbar">
           <h1 class="pull-left">Cards Against Assembly</h1>
-
           <scores></scores>
         </header>
 
         <section id="cards" class="container-fluid" ng-controller="CardsController as cardsController">
+
+          <form ng-submit="cardsController.addCard()">
+            <label for="newCard-question">Question:</label>
+            <input type="text" id="newCard-question" ng-model='cardsController.newCard.question' placeholder="Type Question Here">
+            <input type="submit" value="Submit">
+          </form>
           <div class="row">
 
             <div class="col-sm-6 col-md-6 col-lg-4" ng-repeat="card in cardsController.questionsList" >
-              <wdi-card question="{{card.question}}"></wdi-card>
+              <wdi-card qquestion="{{card.question}}" idnumber="{{card._id}}"></wdi-card>
+              <p>{{card._id}}</p>
+    
+
+
+
+                <form ng-submit="cardsController.updateCard(editCard.question, card._id)">
+                  <label for="editCard-question">Edit Question:</label>
+                  <input type="text" id="editCard-question" ng-model="editCard.question" placeholder="{{card.question}}">
+                  <input type="submit" value="Submit" >
+                </form>
+
+
+
+
             </div>
 
           </div>

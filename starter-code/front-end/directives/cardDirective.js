@@ -7,7 +7,8 @@ function wdiCard() {
 		replace: true,
 		templateUrl: 'templates/cardDirective.html',
 		scope: {
-			question: '@',
+			qquestion: '@',
+			idnumber: '@',
 		},
 	};
 	return directive;

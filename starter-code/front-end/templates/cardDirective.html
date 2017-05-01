@@ -1,4 +1,7 @@
-<div class="card">
-	<h4 class="card-title">{{question}}</h4>
-	<h6>Cards Against Assembly</h6>
-</div>
+<section>
+	<div class="card" ng-controller="CardsController as cardsController">
+		<h4 class="card-title">{{qquestion}}</h4>
+		<button class="delete" ng-click="cardsController.deleteCard(idnumber)">Delete Card</button>
+		<h6>Cards Against Assembly</h6>
+	</div>
+</section>
